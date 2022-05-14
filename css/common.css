@@ -1,0 +1,18 @@
+.blind {
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    position: absolute;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1334px;
+    margin: 0 auto;
+}
+
+section {
+    position: relative;
+    overflow: hidden;
+}

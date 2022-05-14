@@ -1,0 +1,417 @@
+@import "./reset.css";
+@import "./nomalize.css";
+@import "./common.css";
+
+@font-face {
+  font-family: "Titling Gothic FB Extd Reg";
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+
+  src: url(/fonts/Titling_Gothic_FB-Extended.eot);
+  src: url(/fonts/Titling_Gothic_FB-Extended2.eot) format("embedded-opentype"),
+    url(/fonts/Titling_Gothic_FB-Extended.woff2) format("woff2"),
+    url(/fonts/Titling_Gothic_FB-Extended.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Baskerville Display PT";
+  src: url(/fonts/Baskerville.eot);
+  src: url(/fonts/Baskerville2.eot) format("embedded-opentype"),
+    url(/fonts/Baskerville.woff2) format("woff2"),
+    url(/fonts/Baskerville.woff) format("woff"),
+    url(/fonts/Baskerville.ttf) format("truetype");
+}
+
+body {
+  font-family: "Baskerville Display PT", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 웹페이지 폰트를 부드럽게 사용하기 위해서 */
+  font-size: 16px;
+}
+body.hidden {
+  overflow: hidden;
+}
+
+header .logo {
+  font-family: "Titling Gothic FB Extd Reg", sans-serif;
+  font-size: 13px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  padding: 0 50px;
+  z-index: 22;
+  letter-spacing: 0.3rem;
+  overflow: visible;
+}
+header .logo a {
+  display: block;
+}
+header .logo a span {
+  position: absolute;
+}
+header .logo a .logo_r {
+  color: #fff;
+  margin-left: 160px;
+}
+header .nav_btn {
+  position: fixed;
+  top: 70px;
+  right: 70px;
+  z-index: 22;
+  cursor: pointer;
+  background: 0;
+  border: 0;
+}
+header .nav_btn .hamburger_ico {
+  margin-bottom: 10px;
+  transition-duration: 0.15s;
+  transition-property: opacity, filter, -webkit-filter;
+  transition-timing-function: linear;
+}
+header .nav_btn .hamburger_ico .line {
+  background-color: #fff;
+  display: block;
+  width: 39px;
+  height: 1px;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out 0s;
+  margin: 7px auto;
+}
+header .nav_btn .hamburger_ico .line:first-child,
+header .nav_btn .hamburger_ico .line:last-child {
+  margin: 0 auto;
+}
+header .nav_btn span {
+  color: #fff;
+  font-family: "Titling Gothic FB Extd Reg", sans-serif;
+  font-size: 0.5rem;
+  line-height: 1.625;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s ease-in-out 0s;
+}
+
+header .nav_btn.on .hamburger_ico .line {
+  background-color: #000;
+}
+header .nav_btn.on .hamburger_ico .line:first-child {
+  -webkit-transform: translateY(8px) rotate(45deg);
+  -ms-transform: translateY(8px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
+}
+header .nav_btn.on .hamburger_ico .line:nth-child(2) {
+  opacity: 0;
+}
+header .nav_btn.on .hamburger_ico .line:last-child {
+  -webkit-transform: translateY(-8px) rotate(-45deg);
+  -ms-transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
+}
+header .nav_btn.on span {
+  color: #000;
+}
+.nav {
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 21;
+  display: flex;
+  overflow: hidden;
+  visibility: hidden;
+}
+.nav.on {
+  visibility: visible;
+}
+.nav .nav_bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f5;
+  overflow: hidden;
+  left: -100%;
+  top: 0;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+.nav .nav_bg.on {
+  left: 0;
+  transition-delay: 0s;
+}
+.nav .nav_images {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.nav .nav_images .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+.nav .nav_images .container .image {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 66.66667%;
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%;
+  position: absolute;
+  width: 100%;
+  height: 650px;
+  top: 150px;
+  display: none;
+}
+.nav .nav_images .container .image.active {
+  display: block;
+}
+.nav .nav_images .container .image img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  opacity: 0.75;
+}
+.nav .nav_container {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  padding: 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.nav .nav_container .container {
+  transition: all 0.8s;
+  opacity: 0;
+  position: relative;
+}
+.nav .nav_container .container ul {
+  clear: both;
+  display: block;
+  overflow: hidden;
+}
+.nav .nav_container .container ul li {
+  color: #000;
+  width: 50%;
+  float: left;
+}
+.nav .nav_container .container ul li .image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 500px;
+}
+.nav .nav_container .container ul li .image img {
+  width: 100%;
+}
+.nav .nav_container .container ul li:nth-child(-n + 2) {
+  margin-bottom: 100px;
+}
+.nav .nav_container .container ul li a {
+  clear: both;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+.nav .nav_container .container ul li a .num {
+  font-size: 2.5rem;
+  line-height: 1;
+  letter-spacing: -2px;
+  float: left;
+  margin-right: 32px;
+}
+.nav .nav_container .container ul li a .title {
+  font-size: 7.5rem;
+  line-height: 1;
+  letter-spacing: -6px;
+  position: relative;
+  float: left;
+}
+.nav .nav_container .container ul li a .title::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  width: 0;
+  height: 1px;
+  bottom: 10px;
+  background-color: #000;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  box-sizing: border-box;
+}
+.nav .nav_container .container ul li a .title:hover::after {
+  width: 100%;
+}
+
+.nav .nav_bottom {
+  position: absolute;
+  right: 0;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  padding: 0 50px;
+  box-sizing: border-box;
+}
+.nav .nav_bottom .container {
+  justify-content: flex-end;
+  display: flex;
+  opacity: 0;
+  transition: all 0.8s;
+}
+.nav .nav_bottom .container ul {
+  clear: both;
+  display: block;
+  overflow: hidden;
+}
+.nav .nav_bottom .container ul li {
+  font-size: 1.875rem;
+  line-height: 1.13333;
+  letter-spacing: -1px;
+  color: #000;
+  padding: 0 35px;
+  float: left;
+}
+.nav .nav_bottom .container ul li a {
+  position: relative;
+}
+.nav .nav_bottom .container ul li a::after {
+  position: absolute;
+  content: "";
+  left: 35px;
+  width: 100%;
+  height: 1px;
+  bottom: -5px;
+  background-color: #000;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  box-sizing: border-box;
+  display: inline;
+}
+.nav .nav_bottom .container .sns {
+  margin-top: -4px;
+  margin-left: 35px;
+  width: 42px;
+  height: 42px;
+  background: url(../images/nav_insta.svg) no-repeat 100%;
+}
+
+footer {
+  position: relative;
+  font-size: 0.9375rem;
+  line-height: 1.46667;
+  color: white;
+  padding-top: 165px;
+  padding-bottom: 60px;
+  background-color: #7e7871;
+  box-sizing: border-box;
+  display: block;
+}
+footer .ft_nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+footer .ft_nav .wrap {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 66.66667%;
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%;
+  position: relative;
+  text-align: center;
+}
+footer .ft_nav .title {
+  font-size: 10rem;
+  line-height: 1;
+  letter-spacing: -8px;
+  opacity: 0.2;
+}
+footer .ft_nav ul {
+  position: absolute;
+  top: 73px;
+  left: 0;
+  right: 0;
+}
+footer .ft_nav ul li {
+  font-family: "Titling Gothic FB Extd Reg", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-left: 0;
+  display: inline-block;
+}
+footer .ft_nav ul li a {
+  padding: 0 18px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+footer .ft_nav ul li a:hover {
+  opacity: 0.6;
+}
+footer .info {
+  margin-top: 165px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .info .logo img {
+  max-width: 173px;
+  height: 100px;
+}
+footer .info .ft_r {
+  display: flex;
+  align-items: center;
+}
+footer .info .ft_r .privacy {
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+footer .info .ft_r .privacy:hover {
+  opacity: 0.6;
+}
+footer .info .ft_r .sns {
+  padding-left: 35px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  width: 40px;
+  height: 40px;
+  background: url(../images/instagram.svg) no-repeat;
+  background-size: 100% 100%;
+  display: block;
+}
+footer .info .ft_r .sns:hover {
+  opacity: 0.6;
+}
