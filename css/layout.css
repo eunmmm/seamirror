@@ -8,19 +8,19 @@
   font-weight: normal;
   font-style: normal;
 
-  src: url(/fonts/Titling_Gothic_FB-Extended.eot);
-  src: url(/fonts/Titling_Gothic_FB-Extended2.eot) format("embedded-opentype"),
-    url(/fonts/Titling_Gothic_FB-Extended.woff2) format("woff2"),
-    url(/fonts/Titling_Gothic_FB-Extended.woff) format("woff");
+  src: url(../fonts/Titling_Gothic_FB-Extended.eot);
+  src: url(../fonts/Titling_Gothic_FB-Extended2.eot) format("embedded-opentype"),
+    url(../fonts/Titling_Gothic_FB-Extended.woff2) format("woff2"),
+    url(../fonts/Titling_Gothic_FB-Extended.woff) format("woff");
 }
 
 @font-face {
   font-family: "Baskerville Display PT";
-  src: url(/fonts/Baskerville.eot);
-  src: url(/fonts/Baskerville2.eot) format("embedded-opentype"),
-    url(/fonts/Baskerville.woff2) format("woff2"),
-    url(/fonts/Baskerville.woff) format("woff"),
-    url(/fonts/Baskerville.ttf) format("truetype");
+  src: url(../fonts/Baskerville.eot);
+  src: url(../fonts/Baskerville2.eot) format("embedded-opentype"),
+    url(../fonts/Baskerville.woff2) format("woff2"),
+    url(../fonts/Baskerville.woff) format("woff"),
+    url(../fonts/Baskerville.ttf) format("truetype");
 }
 
 body {
